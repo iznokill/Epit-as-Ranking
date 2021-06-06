@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-  <img width="600" height="600" src="https://github.com/iznokill/Epit-as-Ranking/blob/main/Ranking/files/logo.png">
+  <img width="600" height="550" src="https://github.com/iznokill/Epit-as-Ranking/blob/main/Ranking/files/logo.png">
   <img width="1200" height="200" src="https://github.com/iznokill/Epit-as-Ranking/blob/main/Ranking/files/ban.PNG">
 </p>
 
