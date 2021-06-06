@@ -12,6 +12,18 @@ def game_stats(game):
     return game_to_iterable(game_file)
 
 
+def add_player(file, player):
+    json_file = open(file, "r")
+    json_object = json.load(json_file)
+    json_file.close()
+    players_nb = len(json_object["players"])
+    json_object["players"] += [{"name": player, "rank": players_nb, "points": 0}]
+    json_file = open(file, "w")
+    json.dump(json_object, json_file)
+    json_file.close()
+    return str(json_object)
+
+
 def update_json(json_object, game_object):
     player_list = game_object.keys()
     points = len(player_list)
