@@ -12,3 +12,9 @@ def json_to_html(json_object):
     html_table += "\n</table>"
     return html_table
 
+
+def file_to_html(json_file):
+    json_file = open(json_file, "r")
+    json_object = json.load(json_file)
+    json_file.close()
+    return json_to_html(json_object)
