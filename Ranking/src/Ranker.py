@@ -16,7 +16,7 @@ def add_player(file, player):
     json_file = open(file, "r")
     json_object = json.load(json_file)
     json_file.close()
-    players_nb = len(json_object["players"])
+    players_nb = len(json_object["players"]) + 1
     json_object["players"] += [{"name": player, "rank": players_nb, "points": 0}]
     json_file = open(file, "w")
     json.dump(json_object, json_file)
