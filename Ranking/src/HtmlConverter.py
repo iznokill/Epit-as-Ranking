@@ -2,7 +2,8 @@ import json
 
 
 def json_to_html(json_object):
-    html_table = "<table align=\"center\">\n"
+    html_table = "<table align=\"center\">\n  <tr>\n      <th>Placement</th>\n      <th>Login</th>\n      " \
+                 "      <th>Points</th>\n  </tr>\n "
     for player in json_object["players"]:
         html_table += "  <tr>\n"
         html_table += "      <td>" + str(player["rank"]) + "</td>\n"
