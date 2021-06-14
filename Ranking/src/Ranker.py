@@ -26,13 +26,14 @@ def add_player(file, player):
 
 def update_json(json_object, game_object):
     player_list = game_object.keys()
-    points = len(player_list)
     players = json_object["players"]
-    ind = 0
-    for player in players:
-        if player["name"] in player_list:
-            points //= 2 if points > 1 else 1
-            json_object["players"][ind]["points"] += points
+    n = len(player_list)
+
+    ind = 1
+    for player in player_list:
+        database_list = [players[i]["name"] for i in range(len(players))]
+        if player in database_list:
+            json_object["players"][database_list.index(player)]["points"] += round(100 * (1 - ind/n) * ((n/ind)**(1/3)))
         ind += 1
 
     players = sorted(players, key=lambda k: k.get('points', 0), reverse=True)
@@ -56,5 +57,6 @@ def Ranker(file, game):
         json.dump(json_object, json_file)
         json_file.close()
         return str(json_object)
-    except:
+    except Exception as e:
+        print(e)
         print("json file is not on point")
