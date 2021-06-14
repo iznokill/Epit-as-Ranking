@@ -33,7 +33,8 @@ def update_json(json_object, game_object):
     for player in player_list:
         database_list = [players[i]["name"] for i in range(len(players))]
         if player in database_list:
-            json_object["players"][database_list.index(player)]["points"] += round(100 * (1 - ind/n) * ((n/ind)**(1/3)))
+            points = round(100 * (1 - ind/n) * ((n/ind)**(1/3)))
+            json_object["players"][database_list.index(player)]["points"] += points if points != 0 else 1
         ind += 1
 
     players = sorted(players, key=lambda k: k.get('points', 0), reverse=True)
